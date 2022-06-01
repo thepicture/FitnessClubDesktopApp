@@ -1,0 +1,172 @@
+﻿<Window  ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" x:Class="FitnessClubDesktopApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessClubDesktopApp"
+        mc:Ignorable="d" Height="587" Width="951" Background="#FF465173">
+    <Grid>
+        <Frame x:Name="childFormLoader" Margin="28,92,0,0" NavigationUIVisibility="Hidden" Width="923"/>
+        <Canvas x:Name="animationWall" Margin="-296,0,296,0">
+
+            <Canvas HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="325" Background="#FF181E36">
+                <Label x:Name="helloAdmin" Content="Администратор" Canvas.Left="10" Canvas.Top="100" BorderBrush="#FF007EF9" Foreground="#FF007EF9" FontSize="16" Width="305" HorizontalContentAlignment="Center"/>
+                <Image Height="93" Canvas.Left="117" Source="icon.png" Stretch="Fill" Canvas.Top="10" Width="93" RenderTransformOrigin="0.142,0.03"/>
+                <Label x:Name="helloAdmin_Copy" Content="Управление данными" Canvas.Left="10" Canvas.Top="130" BorderBrush="#FF9EA1AA" Foreground="#FF9EA1AA" Width="305" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            </Canvas>
+            <Canvas HorizontalAlignment="Left" Height="424" Margin="0,163,0,0" VerticalAlignment="Top" Width="325" Background="#FF181E36">
+
+                <!--MOVING LOGIC-->
+
+                <ToggleButton x:Name="checkboxSelect" Content="≡" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="295" Canvas.Top="-163" Foreground="White" Height="47" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="{x:Null}" Width="30" FontSize="35" Unchecked="checkboxSelect_Unchecked">
+
+                    <ToggleButton.Triggers>
+                        <EventTrigger RoutedEvent="CheckBox.Checked">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                Storyboard.TargetName="animationWall"
+                Storyboard.TargetProperty="Width"
+                From="1000" To="360" Duration="0:0:0.5" AccelerationRatio="0.5" DecelerationRatio="0.5" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                Storyboard.TargetName="titleLabel"
+                Storyboard.TargetProperty="Opacity"
+                From="0" To="1" Duration="0:0:0.5" AccelerationRatio="0.5" DecelerationRatio="0.5" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="CheckBox.Unchecked">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                Storyboard.TargetName="animationWall"
+                Storyboard.TargetProperty="Width"
+                From="360" To="1000" Duration="0:0:0.5" AccelerationRatio="0.5" DecelerationRatio="0.5"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                Storyboard.TargetName="titleLabel"
+                Storyboard.TargetProperty="Opacity"
+                From="1" To="0" Duration="0:0:0.5" AccelerationRatio="0.5" DecelerationRatio="0.5"  />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ToggleButton.Triggers>
+                </ToggleButton>
+
+                <Button x:Name="btnMainPage" Width="325" BorderBrush="{x:Null}" MouseMove="btnMainPage_MouseMove" MouseLeave="btnMainPage_MouseLeave" Click="btnMainPage_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/home.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Главная страница"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnAddClient" Width="325" BorderBrush="{x:Null}" Canvas.Top="30" MouseMove="btnAddClient_MouseMove" MouseLeave="btnAddClient_MouseLeave" Click="BtnAddClient_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Добавить клиента"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnDeleteClient" Width="325" BorderBrush="{x:Null}" Canvas.Top="60" MouseMove="btnDeleteClient_MouseMove" MouseLeave="btnDeleteClient_MouseLeave" Click="btnDeleteClient_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Удалить клиента"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnModifyClient" Width="325" BorderBrush="{x:Null}" Canvas.Top="90" MouseMove="btnModifyClient_MouseMove" MouseLeave="btnModifyClient_MouseLeave" Click="btnModifyClient_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Изменить данные о клиенте"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnAddTrainer" Width="325" BorderBrush="{x:Null}" Canvas.Top="120" MouseMove="btnAddTrainer_MouseMove" MouseLeave="btnAddTrainer_MouseLeave" Click="btnAddTrainer_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Добавить тренера"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnDeleteTrainer" Width="325" BorderBrush="{x:Null}" Canvas.Top="150" MouseMove="btnDeleteTrainer_MouseMove" MouseLeave="btnDeleteTrainer_MouseLeave" Click="btnDeleteTrainer_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Удалить тренера"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnAddHall" Width="325" BorderBrush="{x:Null}" Canvas.Top="180" MouseMove="btnAddHall_MouseMove" MouseLeave="btnAddHall_MouseLeave" Click="btnAddHall_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Добавить зал"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnDeleteHall" Width="325" BorderBrush="{x:Null}" Canvas.Top="210" MouseMove="btnDeleteHall_MouseMove" MouseLeave="btnDeleteHall_MouseLeave" Click="btnDeleteHall_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Удалить зал"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnAddSubscription" Width="325" BorderBrush="{x:Null}" Canvas.Top="240" MouseMove="btnAddSubscription_MouseMove" MouseLeave="btnAddSubscription_MouseLeave" Click="btnAddSubscription_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Добавить абонемент"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnDeleteSubscription" Width="325" BorderBrush="{x:Null}" Canvas.Top="270" MouseMove="btnDeleteSubscription_MouseMove" MouseLeave="btnDeleteSubscription_MouseLeave" Click="btnDeleteSubscription_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Удалить абонемент"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnBindClientTrainer" Width="325" BorderBrush="{x:Null}" Canvas.Top="300" MouseMove="btnBindClientTrainer_MouseMove" MouseLeave="btnBindClientTrainer_MouseLeave" Click="btnBindClientTrainer_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Записать клиента к тренеру"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnBindClientSubscription" Width="325" BorderBrush="{x:Null}" Canvas.Top="330" MouseMove="btnBindClientSubscription_MouseMove" MouseLeave="btnBindClientSubscription_MouseLeave" Click="btnBindClientSubscription_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Назначить клиенту абонемент"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnBindSubscriptionHall" Width="325" BorderBrush="{x:Null}" Canvas.Top="360" MouseMove="btnBindSubscriptionHall_MouseMove" MouseLeave="btnBindSubscriptionHall_MouseLeave" Click="btnBindSubscriptionHall_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Назначить зал абонементу"/></TextBlock>
+                </Button>
+
+                <Button x:Name="btnBindTrainerHall" Width="325" BorderBrush="{x:Null}" Canvas.Top="389" MouseMove="btnBindTrainerHall_MouseMove" MouseLeave="btnBindTrainerHall_MouseLeave" Click="btnBindTrainerHall_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Properties/contact.png" AlignmentX="Right" Stretch="None"/>
+                    </Button.Background>
+                    <TextBlock Foreground="#FF007EF9" FontSize="16" FontWeight="Bold" FontFamily="Nirmala UI" Width="315"><Run Text="Назначить зал тренеру"/></TextBlock>
+                </Button>
+            </Canvas>
+            <StackPanel x:Name="pnlNavigation" HorizontalAlignment="Left" Height="414" Margin="0,163,0,0" VerticalAlignment="Top" Width="3" Background="#FF007EF9"/>
+
+        </Canvas>
+        
+        <!--DEMONSTRATION-->
+
+        <Label x:Name="titleLabel" Opacity="0" Content="Главная"  Foreground="#FF9EA1B0" FontSize="34" FontWeight="Bold" Margin="365,20,77,500"/>
+        <Label x:Name="statusBar" Content="" HorizontalAlignment="Left" Margin="330,559,0,0" VerticalAlignment="Top" Foreground="#FF00A6F9" Focusable="True" Width="611" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="btnExit" BorderBrush="{x:Null}" Content="X" HorizontalAlignment="Left" Margin="879,10,0,0" VerticalAlignment="Top" Width="62" Height="45" Background="{x:Null}" FontSize="30" Foreground="White" Click="btnExit_Click" FontFamily="Segoe UI Light"/>
+
+    </Grid>
+</Window>

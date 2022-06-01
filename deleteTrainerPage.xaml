@@ -1,0 +1,33 @@
+﻿<Page x:Class="FitnessClubDesktopApp.deleteTrainerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FitnessClubDesktopApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="deleteTrainerPage">
+    <Grid>
+        <Grid Background="#FF2E3349" RenderTransformOrigin="0.545,0.514">
+
+            <GroupBox BorderBrush="{x:Null}" BorderThickness="0">
+                <StackPanel Margin="400,55,0,0">
+                    <TextBlock Foreground="#FF9EA1B0" FontSize="16" VerticalAlignment="Center" Height="20">Номер тренера</TextBlock>
+                    <TextBox x:Name="textBoxID" FontSize="14" HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderBrush="White" Background="{x:Null}" BorderThickness="0,0,0,1" Foreground="White" TextChanged="textBoxID_TextChanged"/>
+                    <TextBlock Foreground="#FF9EA1B0" FontSize="16" VerticalAlignment="Center" Height="20">ФИО</TextBlock>
+                    <TextBox IsEnabled="False" x:Name="textBoxName" FontSize="14" HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderBrush="White" Background="{x:Null}" BorderThickness="0,0,0,1" Foreground="White"/>
+                    <TextBlock Foreground="#FF9EA1B0"  FontSize="16" VerticalAlignment="Center" Height="20">Квалификация</TextBlock>
+                    <TextBox IsEnabled="False" x:Name="textBoxSkill" FontSize="14" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderThickness="0,0,0,1" BorderBrush="White" Background="{x:Null}" Foreground="White"/>
+                    <Button x:Name="btnDeleteTrainer" Margin="0,20,210,0" Width="301" Content="Удалить" Background="{x:Null}" BorderBrush="White" Foreground="White" BorderThickness="2" Click="btnDeleteTrainer_Click" MouseMove="btnDeleteTrainer_MouseMove" MouseLeave="btnDeleteTrainer_MouseLeave"/>
+                    <DataGrid  Margin="-106,20,0,0" x:Name="trainerRelation" Height="182" Background="White" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" MouseDoubleClick="trainerRelation_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Номер" Binding="{Binding T_ID}" Width="*"/>
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding T_NAME}" Width="*"/>
+                            <DataGridTextColumn Header="Квалификация" Binding="{Binding T_SKILL}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Page>
