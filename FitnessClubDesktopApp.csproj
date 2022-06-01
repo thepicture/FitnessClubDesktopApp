@@ -57,56 +57,56 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="statusBarFree.cs" />
-    <Page Include="addClientPage.xaml">
+    <Compile Include="StatusBarFree.cs" />
+    <Page Include="AddClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="addHallPage.xaml">
+    <Page Include="AddHallPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="addSubscriptionPage.xaml">
+    <Page Include="AddSubscriptionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="addTrainerPage.xaml">
+    <Page Include="AddTrainerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="bindClientSubscriptionPage.xaml">
+    <Page Include="BindClientSubscriptionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="bindClientTrainerPage.xaml">
+    <Page Include="BindClientTrainerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="bindHallSubscriptionPage.xaml">
+    <Page Include="BindHallSubscriptionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="bindTrainerHallPage.xaml">
+    <Page Include="BindTrainerHallPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="deleteClientPage.xaml">
+    <Page Include="DeleteClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="deleteHallPage.xaml">
+    <Page Include="DeleteHallPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="deleteSubscriptionPage.xaml">
+    <Page Include="DeleteSubscriptionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="deleteTrainerPage.xaml">
+    <Page Include="DeleteTrainerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="helloPage.xaml">
+    <Page Include="HelloPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,61 +114,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="addClientPage.xaml.cs">
-      <DependentUpon>addClientPage.xaml</DependentUpon>
+    <Compile Include="AddClientPage.xaml.cs">
+      <DependentUpon>AddClientPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="addHallPage.xaml.cs">
-      <DependentUpon>addHallPage.xaml</DependentUpon>
+    <Compile Include="AddHallPage.xaml.cs">
+      <DependentUpon>AddHallPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="addSubscriptionPage.xaml.cs">
-      <DependentUpon>addSubscriptionPage.xaml</DependentUpon>
+    <Compile Include="AddSubscriptionPage.xaml.cs">
+      <DependentUpon>AddSubscriptionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="addTrainerPage.xaml.cs">
-      <DependentUpon>addTrainerPage.xaml</DependentUpon>
+    <Compile Include="AddTrainerPage.xaml.cs">
+      <DependentUpon>AddTrainerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bindClientSubscriptionPage.xaml.cs">
-      <DependentUpon>bindClientSubscriptionPage.xaml</DependentUpon>
+    <Compile Include="BindClientSubscriptionPage.xaml.cs">
+      <DependentUpon>BindClientSubscriptionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="bindClientTrainerPage.xaml.cs">
-      <DependentUpon>bindClientTrainerPage.xaml</DependentUpon>
+    <Compile Include="BindClientTrainerPage.xaml.cs">
+      <DependentUpon>BindClientTrainerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="bindHallSubscriptionPage.xaml.cs">
-      <DependentUpon>bindHallSubscriptionPage.xaml</DependentUpon>
+    <Compile Include="BindHallSubscriptionPage.xaml.cs">
+      <DependentUpon>BindHallSubscriptionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="bindTrainerHallPage.xaml.cs">
-      <DependentUpon>bindTrainerHallPage.xaml</DependentUpon>
+    <Compile Include="BindTrainerHallPage.xaml.cs">
+      <DependentUpon>BindTrainerHallPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="deleteClientPage.xaml.cs">
-      <DependentUpon>deleteClientPage.xaml</DependentUpon>
+    <Compile Include="DeleteClientPage.xaml.cs">
+      <DependentUpon>DeleteClientPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="deleteHallPage.xaml.cs">
-      <DependentUpon>deleteHallPage.xaml</DependentUpon>
+    <Compile Include="DeleteHallPage.xaml.cs">
+      <DependentUpon>DeleteHallPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="deleteSubscriptionPage.xaml.cs">
-      <DependentUpon>deleteSubscriptionPage.xaml</DependentUpon>
+    <Compile Include="DeleteSubscriptionPage.xaml.cs">
+      <DependentUpon>DeleteSubscriptionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="deleteTrainerPage.xaml.cs">
-      <DependentUpon>deleteTrainerPage.xaml</DependentUpon>
+    <Compile Include="DeleteTrainerPage.xaml.cs">
+      <DependentUpon>DeleteTrainerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="helloPage.xaml.cs">
-      <DependentUpon>helloPage.xaml</DependentUpon>
+    <Compile Include="HelloPage.xaml.cs">
+      <DependentUpon>HelloPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="modifyClientPage.xaml">
+    <Page Include="ModifyClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="modifyClientPage.xaml.cs">
-      <DependentUpon>modifyClientPage.xaml</DependentUpon>
+    <Compile Include="ModifyClientPage.xaml.cs">
+      <DependentUpon>ModifyClientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

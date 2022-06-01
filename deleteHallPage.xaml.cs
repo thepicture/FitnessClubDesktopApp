@@ -1,28 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FitnessClubDesktopApp
 {
     /// <summary>
-    /// Interaction logic for deleteHallPage.xaml
+    /// Interaction logic for DeleteHallPage.xaml
     /// </summary>
-    public partial class deleteHallPage : Page
+    public partial class DeleteHallPage : Page
     {
-        public deleteHallPage()
+        public DeleteHallPage()
         {
             InitializeComponent();
             FillDataGrid();
@@ -30,10 +20,9 @@ namespace FitnessClubDesktopApp
 
         private void FillDataGrid()
         {
-            string CmdString = string.Empty;
             using (SqlConnection con = new SqlConnection(Properties.Resources.CONNECTION_STRING))
             {
-                CmdString = "SELECT * FROM HALL";
+                string CmdString = "SELECT * FROM HALL";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("Hall");
@@ -42,10 +31,10 @@ namespace FitnessClubDesktopApp
             }
         }
 
-        private void textBoxID_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBoxID_TextChanged(object sender, TextChangedEventArgs e)
         {
             textBoxName.Text = "";
-            btnDeleteHall.IsEnabled = true;
+            BtnDeleteHall.IsEnabled = true;
             try
             {
                 using (SqlConnection connection = new SqlConnection(Properties.Resources.CONNECTION_STRING))
@@ -70,19 +59,19 @@ namespace FitnessClubDesktopApp
             }
         }
 
-        private void btnDeleteHall_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteHall_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 SqlConnection connection = new SqlConnection(Properties.Resources.CONNECTION_STRING);
-                //SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-IJFGR01\SQLEXPRESS; Initial Catalog=Fitness_club; Integrated Security=true");
+
 
                 connection.Open();
                 string cmd = "DELETE FROM HALL WHERE H_ID='" + textBoxID.Text + "'";
                 SqlCommand createCommand = new SqlCommand(cmd, connection);
                 createCommand.ExecuteNonQuery();
                 textBoxName.Text = "";
-                btnDeleteHall.IsEnabled = false;
+                BtnDeleteHall.IsEnabled = false;
                 MessageBox.Show("Данные удалены!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                 FillDataGrid();
             }
@@ -92,17 +81,17 @@ namespace FitnessClubDesktopApp
             }
         }
 
-        private void btnDeleteHall_MouseMove(object sender, MouseEventArgs e)
+        private void BtnDeleteHall_MouseMove(object sender, MouseEventArgs e)
         {
-            statusBarFree.statusbar.Content = "Удалить зал";
+            StatusBarFree.StatusBar.Content = "Удалить зал";
         }
 
-        private void btnDeleteHall_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnDeleteHall_MouseLeave(object sender, MouseEventArgs e)
         {
-            statusBarFree.statusbar.Content = "";
+            StatusBarFree.StatusBar.Content = "";
         }
 
-        private void hallRelation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void HallRelation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataRowView row = (DataRowView)hallRelation.SelectedItems[0];
             textBoxID.Text = row["H_ID"].ToString();

@@ -1,4 +1,4 @@
-﻿<Page x:Class="FitnessClubDesktopApp.modifyClientPage"
+﻿<Page x:Class="FitnessClubDesktopApp.ModifyClientPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,15 +14,15 @@
             <GroupBox BorderBrush="{x:Null}" BorderThickness="0">
                 <StackPanel Margin="400,55,0,0">
                     <TextBlock Foreground="#FF9EA1B0" FontSize="16" VerticalAlignment="Center" Height="20">Номер клиента</TextBlock>
-                    <TextBox x:Name="textBoxID" FontSize="14" HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderBrush="White" Background="{x:Null}" BorderThickness="0,0,0,1" Foreground="White" TextChanged="textBoxID_TextChanged"/>
+                    <TextBox x:Name="textBoxID" FontSize="14" HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderBrush="White" Background="{x:Null}" BorderThickness="0,0,0,1" Foreground="White" TextChanged="TextBoxID_TextChanged"/>
                     <TextBlock Foreground="#FF9EA1B0" FontSize="16" VerticalAlignment="Center" Height="20">ФИО</TextBlock>
                     <TextBox x:Name="textBoxName" FontSize="14" HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderBrush="White" Background="{x:Null}" BorderThickness="0,0,0,1" Foreground="White"/>
                     <TextBlock Foreground="#FF9EA1B0"  FontSize="16" VerticalAlignment="Center" Height="20">Номер паспорта</TextBlock>
                     <TextBox x:Name="textBoxPassNum" FontSize="14" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderThickness="0,0,0,1" BorderBrush="White" Background="{x:Null}" Foreground="White"/>
                     <TextBlock Foreground="#FF9EA1B0" FontSize="16" Height="20" VerticalAlignment="Top" >Код паспорта</TextBlock>
                     <TextBox x:Name="textBoxPassCode" FontSize="14" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderThickness="0,0,0,1" BorderBrush="White" Background="{x:Null}" Foreground="White"/>
-                    <Button x:Name="btnDeleteClient" Margin="0,20,210,0" Width="301" Content="Изменить" Background="{x:Null}" BorderBrush="White" Foreground="White" BorderThickness="2" Click="btnDeleteClient_Click" MouseMove="btnDeleteClient_MouseMove" MouseLeave="btnDeleteClient_MouseLeave"/>
-                    <DataGrid  Margin="-106,20,0,0" x:Name="clientRelation" Height="182" Background="White" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" MouseDoubleClick="clientRelation_MouseDoubleClick">
+                    <Button x:Name="BtnDeleteClient" Margin="0,20,210,0" Width="301" Content="Изменить" Background="{x:Null}" BorderBrush="White" Foreground="White" BorderThickness="2" Click="BtnDeleteClient_Click" MouseMove="BtnDeleteClient_MouseMove" MouseLeave="BtnDeleteClient_MouseLeave"/>
+                    <DataGrid  Margin="-106,20,0,0" x:Name="clientRelation" Height="182" Background="White" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" MouseDoubleClick="ClientRelation_MouseDoubleClick">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Номер клиента" Binding="{Binding C_ID}" Width="*"/>
                             <DataGridTextColumn Header="ФИО" Binding="{Binding C_NAME}" Width="*"/>

@@ -1,4 +1,4 @@
-﻿<Page x:Class="FitnessClubDesktopApp.bindTrainerHallPage"
+﻿<Page x:Class="FitnessClubDesktopApp.BindTrainerHallPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,22 +6,19 @@
       xmlns:local="clr-namespace:FitnessClubDesktopApp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="bindTrainerHallPage">
-
+      Title="BindTrainerHallPage">
     <Grid Background="#FF2E3349" RenderTransformOrigin="0.545,0.514">
-
         <GroupBox BorderBrush="{x:Null}" BorderThickness="0">
             <StackPanel Margin="400,55,0,0">
                 <TextBlock Foreground="#FF9EA1B0" FontSize="16" VerticalAlignment="Center" Height="20">Номер тренера</TextBlock>
                 <TextBox x:Name="textBoxTrainerID" FontSize="14" HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderBrush="White" Background="{x:Null}" BorderThickness="0,0,0,1" Foreground="White"/>
                 <TextBlock Foreground="#FF9EA1B0"  FontSize="16" VerticalAlignment="Center" Height="20">Номер зала</TextBlock>
                 <TextBox x:Name="textBoxHallID" FontSize="14" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" BorderThickness="0,0,0,1" BorderBrush="White" Background="{x:Null}" Foreground="White"/>
-                <Button x:Name="btnAdd" Margin="0,20,210,0" Width="301" Content="Добавить" Background="{x:Null}" BorderBrush="White" Foreground="White" BorderThickness="2" Click="btnAdd_Click" MouseMove="btnAdd_MouseMove" MouseLeave="btnAdd_MouseLeave"/>
-
+                <Button x:Name="BtnAdd" Margin="0,20,210,0" Width="301" Content="Добавить" Background="{x:Null}" BorderBrush="White" Foreground="White" BorderThickness="2" Click="BtnAdd_Click" MouseMove="BtnAdd_MouseMove" MouseLeave="BtnAdd_MouseLeave"/>
             </StackPanel>
         </GroupBox>
         <StackPanel Orientation="Horizontal" Margin="305,0,0,25">
-            <DataGrid  Margin="0,187,10,10"  x:Name="trainerRelation" Background="White" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" Width="308" MouseDoubleClick="trainerRelation_MouseDoubleClick">
+            <DataGrid  Margin="0,187,10,10"  x:Name="trainerRelation" Background="White" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" Width="308" MouseDoubleClick="TrainerRelation_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Номер" Binding="{Binding T_ID}" Width="*"/>
                     <DataGridTextColumn Header="ФИО" Binding="{Binding T_NAME}" Width="*"/>

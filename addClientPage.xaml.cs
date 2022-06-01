@@ -1,40 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FitnessClubDesktopApp
 {
     /// <summary>
-    /// Interaction logic for addClientPage.xaml
+    /// Interaction logic for AddClientPage.xaml
     /// </summary>
-    public partial class addClientPage : Page
+    public partial class AddClientPage : Page
     {
-        public addClientPage()
+        public AddClientPage()
         {
             InitializeComponent();
             FillDataGrid();
         }
         private void FillDataGrid()
         {
-            string CmdString = string.Empty;
             using (SqlConnection con = new SqlConnection(Properties.Resources.CONNECTION_STRING))
             {
-                CmdString = "SELECT * FROM CLIENT";
+                string CmdString = "SELECT * FROM CLIENT";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("Client");
@@ -43,7 +30,6 @@ namespace FitnessClubDesktopApp
             }
         }
 
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -51,7 +37,7 @@ namespace FitnessClubDesktopApp
                 SqlConnection connection = new SqlConnection(Properties.Resources.CONNECTION_STRING);
 
                 connection.Open();
-                string cmd = "INSERT INTO CLIENT (C_NAME, C_PASSNUM, C_PASSCODE) VALUES ('" + this.textBoxName.Text + "','" + this.textBoxPassNum.Text + "','" + this.textBoxPassCode.Text + "')";
+                string cmd = $"INSERT INTO CLIENT (C_NAME, C_PASSNUM, C_PASSCODE) VALUES ('{textBoxName.Text}','{textBoxPassNum.Text}','{textBoxPassCode.Text}')";
                 SqlCommand createCommand = new SqlCommand(cmd, connection);
                 createCommand.ExecuteNonQuery();
                 MessageBox.Show("Клиент успешно добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -65,20 +51,19 @@ namespace FitnessClubDesktopApp
 
         private void Button_MouseMove(object sender, MouseEventArgs e)
         {
-            statusBarFree.statusbar.Content = "Добавить клиента";
+            StatusBarFree.StatusBar.Content = "Добавить клиента";
         }
 
         private void Button_MouseLeave(object sender, MouseEventArgs e)
         {
-            statusBarFree.statusbar.Content = "";
+            StatusBarFree.StatusBar.Content = "";
         }
 
-        private void txtBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        private void TxtBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string CmdString = string.Empty;
             using (SqlConnection con = new SqlConnection(Properties.Resources.CONNECTION_STRING))
             {
-                CmdString = $"SELECT * FROM CLIENT WHERE C_NAME LIKE '%{txtBoxSearch.Text}%' OR C_PASSNUM LIKE '%{txtBoxSearch.Text}%' OR C_PASSCODE LIKE '%{txtBoxSearch.Text}%'";
+                string CmdString = $"SELECT * FROM CLIENT WHERE C_NAME LIKE '%{txtBoxSearch.Text}%' OR C_PASSNUM LIKE '%{txtBoxSearch.Text}%' OR C_PASSCODE LIKE '%{txtBoxSearch.Text}%'";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("Client");

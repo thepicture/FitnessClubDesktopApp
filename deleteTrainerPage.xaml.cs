@@ -1,38 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FitnessClubDesktopApp
 {
     /// <summary>
-    /// Interaction logic for deleteTrainerPage.xaml
+    /// Interaction logic for DeleteTrainerPage.xaml
     /// </summary>
-    public partial class deleteTrainerPage : Page
+    public partial class DeleteTrainerPage : Page
     {
-        public deleteTrainerPage()
+        public DeleteTrainerPage()
         {
             InitializeComponent();
             FillDataGrid();
         }
         private void FillDataGrid()
         {
-            string CmdString = string.Empty;
             using (SqlConnection con = new SqlConnection(Properties.Resources.CONNECTION_STRING))
             {
-                CmdString = "SELECT * FROM TRAINER";
+                string CmdString = "SELECT * FROM TRAINER";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("Trainer");
@@ -42,11 +31,11 @@ namespace FitnessClubDesktopApp
         }
 
 
-        private void textBoxID_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBoxID_TextChanged(object sender, TextChangedEventArgs e)
         {
             textBoxName.Text = "";
             textBoxSkill.Text = "";
-            btnDeleteTrainer.IsEnabled = true;
+            BtnDeleteTrainer.IsEnabled = true;
             try
             {
                 using (SqlConnection connection = new SqlConnection(Properties.Resources.CONNECTION_STRING))
@@ -73,12 +62,12 @@ namespace FitnessClubDesktopApp
             }
         }
 
-        private void btnDeleteTrainer_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteTrainer_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 SqlConnection connection = new SqlConnection(Properties.Resources.CONNECTION_STRING);
-                //SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-IJFGR01\SQLEXPRESS; Initial Catalog=Fitness_club; Integrated Security=true");
+
 
                 connection.Open();
                 string cmd = "DELETE FROM TRAINER WHERE T_ID='" + textBoxID.Text + "'";
@@ -86,7 +75,7 @@ namespace FitnessClubDesktopApp
                 createCommand.ExecuteNonQuery();
                 textBoxName.Text = "";
                 textBoxSkill.Text = "";
-                btnDeleteTrainer.IsEnabled = false;
+                BtnDeleteTrainer.IsEnabled = false;
                 FillDataGrid();
             }
             catch (Exception)
@@ -95,17 +84,17 @@ namespace FitnessClubDesktopApp
             }
         }
 
-        private void btnDeleteTrainer_MouseMove(object sender, MouseEventArgs e)
+        private void BtnDeleteTrainer_MouseMove(object sender, MouseEventArgs e)
         {
-            statusBarFree.statusbar.Content = "Удалить тренера";
+            StatusBarFree.StatusBar.Content = "Удалить тренера";
         }
 
-        private void btnDeleteTrainer_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnDeleteTrainer_MouseLeave(object sender, MouseEventArgs e)
         {
-            statusBarFree.statusbar.Content = "";
+            StatusBarFree.StatusBar.Content = "";
         }
 
-        private void trainerRelation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void TrainerRelation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataRowView row = (DataRowView)trainerRelation.SelectedItems[0];
             textBoxID.Text = row["T_ID"].ToString();

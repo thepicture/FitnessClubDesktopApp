@@ -1,28 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FitnessClubDesktopApp
 {
     /// <summary>
-    /// Interaction logic for deleteSubscriptionPage.xaml
+    /// Interaction logic for DeleteSubscriptionPage.xaml
     /// </summary>
-    public partial class deleteSubscriptionPage : Page
+    public partial class DeleteSubscriptionPage : Page
     {
-        public deleteSubscriptionPage()
+        public DeleteSubscriptionPage()
         {
             InitializeComponent();
             FillDataGrid();
@@ -30,10 +20,9 @@ namespace FitnessClubDesktopApp
 
         private void FillDataGrid()
         {
-            string CmdString = string.Empty;
             using (SqlConnection con = new SqlConnection(Properties.Resources.CONNECTION_STRING))
             {
-                CmdString = "SELECT * FROM SUBSCRIPTION";
+                string CmdString = "SELECT * FROM SUBSCRIPTION";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("Subscription");
@@ -42,11 +31,11 @@ namespace FitnessClubDesktopApp
             }
         }
 
-        private void textBoxID_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBoxID_TextChanged(object sender, TextChangedEventArgs e)
         {
             textBoxStartDate.Text = "";
             textBoxEndDate.Text = "";
-            btnDeleteSubscription.IsEnabled = true;
+            BtnDeleteSubscription.IsEnabled = true;
             try
             {
                 using (SqlConnection connection = new SqlConnection(Properties.Resources.CONNECTION_STRING))
@@ -72,12 +61,12 @@ namespace FitnessClubDesktopApp
             }
         }
 
-        private void btnDeleteSubscription_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteSubscription_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 SqlConnection connection = new SqlConnection(Properties.Resources.CONNECTION_STRING);
-                //SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-IJFGR01\SQLEXPRESS; Initial Catalog=Fitness_club; Integrated Security=true");
+
 
                 connection.Open();
                 string cmd = "DELETE FROM SUBSCRIPTION WHERE S_ID='" + textBoxID.Text + "'";
@@ -85,7 +74,7 @@ namespace FitnessClubDesktopApp
                 createCommand.ExecuteNonQuery();
                 textBoxStartDate.Text = "";
                 textBoxEndDate.Text = "";
-                btnDeleteSubscription.IsEnabled = false;
+                BtnDeleteSubscription.IsEnabled = false;
                 MessageBox.Show("Данные удалены!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                 FillDataGrid();
             }
@@ -95,17 +84,17 @@ namespace FitnessClubDesktopApp
             }
         }
 
-        private void btnDeleteSubscription_MouseMove(object sender, MouseEventArgs e)
+        private void BtnDeleteSubscription_MouseMove(object sender, MouseEventArgs e)
         {
-            statusBarFree.statusbar.Content = "Удалить абонемент";
+            StatusBarFree.StatusBar.Content = "Удалить абонемент";
         }
 
-        private void btnDeleteSubscription_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnDeleteSubscription_MouseLeave(object sender, MouseEventArgs e)
         {
-            statusBarFree.statusbar.Content = "";
+            StatusBarFree.StatusBar.Content = "";
         }
 
-        private void subscriptionRelation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void SubscriptionRelation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataRowView row = (DataRowView)subscriptionRelation.SelectedItems[0];
             textBoxID.Text = row["S_ID"].ToString();

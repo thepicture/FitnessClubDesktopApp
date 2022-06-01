@@ -1,20 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FitnessClubDesktopApp
 {
@@ -23,12 +10,11 @@ namespace FitnessClubDesktopApp
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
-            childFormLoader.Content = new helloPage();
-            statusBarFree.statusbar = statusBar;
+            childFormLoader.Content = new HelloPage();
+            StatusBarFree.StatusBar = statusBar;
 
             try
             {
@@ -39,253 +25,253 @@ namespace FitnessClubDesktopApp
             catch (Exception)
             {
                 MessageBox.Show("Подключение к базе данных неуспешно. Проверьте настройки сети.");
-                System.Windows.Application.Current.Shutdown();
+                Application.Current.Shutdown();
             }
         }
 
 
-        private void btnMainPage_MouseMove(object sender, MouseEventArgs e)
+        private void BtnMainPage_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Перейти на главную страницу";
         }
 
-        private void btnMainPage_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnMainPage_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnAddClient_MouseMove(object sender, MouseEventArgs e)
+        private void BtnAddClient_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Добавить клиента в базу данных";
         }
 
-        private void btnAddClient_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnAddClient_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnDeleteClient_MouseMove(object sender, MouseEventArgs e)
+        private void BtnDeleteClient_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Удалить клиента из базы данных";
         }
 
-        private void btnDeleteClient_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnDeleteClient_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnModifyClient_MouseMove(object sender, MouseEventArgs e)
+        private void BtnModifyClient_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Модифицировать или просмотреть данные о существующих клиентах";
         }
 
-        private void btnModifyClient_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnModifyClient_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnAddTrainer_MouseMove(object sender, MouseEventArgs e)
+        private void BtnAddTrainer_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Добавить тренера в базу данных";
         }
 
-        private void btnAddTrainer_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnAddTrainer_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnDeleteTrainer_MouseMove(object sender, MouseEventArgs e)
+        private void BtnDeleteTrainer_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Удалить тренера из базы данных";
         }
 
-        private void btnDeleteTrainer_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnDeleteTrainer_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnAddHall_MouseMove(object sender, MouseEventArgs e)
+        private void BtnAddHall_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Добавить зал в базу данных";
         }
 
-        private void btnAddHall_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnAddHall_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnDeleteHall_MouseMove(object sender, MouseEventArgs e)
+        private void BtnDeleteHall_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Удалить зал из базы данных";
         }
 
-        private void btnDeleteHall_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnDeleteHall_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnAddSubscription_MouseMove(object sender, MouseEventArgs e)
+        private void BtnAddSubscription_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Добавить абонемент в базу данных";
         }
 
-        private void btnAddSubscription_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnAddSubscription_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnDeleteSubscription_MouseMove(object sender, MouseEventArgs e)
+        private void BtnDeleteSubscription_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Удалить абонемент из базы данных";
         }
 
-        private void btnDeleteSubscription_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnDeleteSubscription_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnBindClientTrainer_MouseMove(object sender, MouseEventArgs e)
+        private void BtnBindClientTrainer_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Записать клиента к тренеру";
         }
 
-        private void btnBindClientTrainer_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnBindClientTrainer_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnBindClientSubscription_MouseMove(object sender, MouseEventArgs e)
+        private void BtnBindClientSubscription_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Назначить клиенту абонемент";
         }
 
-        private void btnBindClientSubscription_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnBindClientSubscription_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnBindSubscriptionHall_MouseMove(object sender, MouseEventArgs e)
+        private void BtnBindSubscriptionHall_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Назначить зал абонементу";
         }
 
-        private void btnBindSubscriptionHall_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnBindSubscriptionHall_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnBindHallSubscription_MouseMove(object sender, MouseEventArgs e)
+        private void BtnBindHallSubscription_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Назначить абонементу зал";
         }
 
-        private void btnBindHallSubscription_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnBindHallSubscription_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnBindTrainerHall_MouseMove(object sender, MouseEventArgs e)
+        private void BtnBindTrainerHall_MouseMove(object sender, MouseEventArgs e)
         {
             statusBar.Content = "Назначить зал тренеру";
         }
 
-        private void btnBindTrainerHall_MouseLeave(object sender, MouseEventArgs e)
+        private void BtnBindTrainerHall_MouseLeave(object sender, MouseEventArgs e)
         {
             statusBar.Content = "";
         }
 
-        private void btnMainPage_Click(object sender, RoutedEventArgs e)
+        private void BtnMainPage_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new helloPage();
+            childFormLoader.Content = new HelloPage();
             titleLabel.Content = "Главная";
         }
 
-        private void btnExit_Click(object sender, RoutedEventArgs e)
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }
 
         private void BtnAddClient_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new addClientPage();
+            childFormLoader.Content = new AddClientPage();
             titleLabel.Content = "Добавить клиента";
         }
 
-        private void checkboxSelect_Unchecked(object sender, RoutedEventArgs e)
+        private void CheckboxSelect_Unchecked(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new helloPage();
+            childFormLoader.Content = new HelloPage();
             titleLabel.Content = "Главная";
         }
 
-        private void btnDeleteClient_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteClient_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new deleteClientPage();
+            childFormLoader.Content = new DeleteClientPage();
             titleLabel.Content = "Удалить клиента";
         }
 
-        private void btnModifyClient_Click(object sender, RoutedEventArgs e)
+        private void BtnModifyClient_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new modifyClientPage();
+            childFormLoader.Content = new ModifyClientPage();
             titleLabel.Content = "Изменить данные о клиенте";
         }
 
-        private void btnAddTrainer_Click(object sender, RoutedEventArgs e)
+        private void BtnAddTrainer_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new addTrainerPage();
+            childFormLoader.Content = new AddTrainerPage();
             titleLabel.Content = "Добавить тренера";
         }
 
-        private void btnDeleteTrainer_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteTrainer_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new deleteTrainerPage();
+            childFormLoader.Content = new DeleteTrainerPage();
             titleLabel.Content = "Удалить тренера";
         }
 
-        private void btnAddHall_Click(object sender, RoutedEventArgs e)
+        private void BtnAddHall_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new addHallPage();
+            childFormLoader.Content = new AddHallPage();
             titleLabel.Content = "Добавить зал";
         }
 
-        private void btnDeleteHall_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteHall_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new deleteHallPage();
+            childFormLoader.Content = new DeleteHallPage();
             titleLabel.Content = "Удалить зал";
         }
 
-        private void btnAddSubscription_Click(object sender, RoutedEventArgs e)
+        private void BtnAddSubscription_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new addSubscriptionPage();
+            childFormLoader.Content = new AddSubscriptionPage();
             titleLabel.Content = "Добавить абонемент";
         }
 
-        private void btnDeleteSubscription_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteSubscription_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new deleteSubscriptionPage();
+            childFormLoader.Content = new DeleteSubscriptionPage();
             titleLabel.Content = "Удалить абонемент";
         }
 
-        private void btnBindClientTrainer_Click(object sender, RoutedEventArgs e)
+        private void BtnBindClientTrainer_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new bindClientTrainerPage();
+            childFormLoader.Content = new BindClientTrainerPage();
             titleLabel.Content = "Записать клиента к тренеру";
         }
 
-        private void btnBindClientSubscription_Click(object sender, RoutedEventArgs e)
+        private void BtnBindClientSubscription_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new bindClientSubscriptionPage();
+            childFormLoader.Content = new BindClientSubscriptionPage();
             titleLabel.Content = "Связать клиента и абонемент";
         }
 
-        private void btnBindSubscriptionHall_Click(object sender, RoutedEventArgs e)
+        private void BtnBindSubscriptionHall_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new bindHallSubscriptionPage();
+            childFormLoader.Content = new BindHallSubscriptionPage();
             titleLabel.Content = "Связать зал и абонемент";
         }
 
-        private void btnBindTrainerHall_Click(object sender, RoutedEventArgs e)
+        private void BtnBindTrainerHall_Click(object sender, RoutedEventArgs e)
         {
-            childFormLoader.Content = new bindTrainerHallPage();
+            childFormLoader.Content = new BindTrainerHallPage();
             titleLabel.Content = "Назначить зал тренеру";
         }
     }
